@@ -1,7 +1,7 @@
 --// free Key system by me
 
 --== CONFIGURATION ==--
-local ownerKey = "defyowner123" -- 🔑 Owner master key
+local ownerKey = "123" -- 🔑 Owner master key
 local linkKeyURL = "YOUR LINK HERE e.g Linkvertise.com" -- 🔗 Link key (for normal users)
 local scriptURL = "https://your-main-script-link.com/script.lua" -- 🧠 Your main script
 
