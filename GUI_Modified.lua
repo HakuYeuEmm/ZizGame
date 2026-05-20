@@ -110,6 +110,103 @@ local UIConfig = {
                 print("", Value)
             end
         },
+        -- ===== CUSTOM INFO =====
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local MarketplaceService = game:GetService("MarketplaceService")
+
+local LocalPlayer = Players.LocalPlayer
+local StartTime = tick()
+
+local GameName = "Unknown"
+
+pcall(function()
+    GameName = MarketplaceService:GetProductInfo(game.PlaceId).Name
+end)
+
+Tabs.Main:CreateParagraph("GameInfo", {
+    Title = "Tên Game Đang Chơi",
+    Content = GameName
+})
+
+Tabs.Main:CreateParagraph("UserInfo", {
+    Title = "Tên Người Dùng",
+    Content = LocalPlayer.Name
+})
+
+Tabs.Main:CreateParagraph("ExecutorInfo", {
+    Title = "Client Sử Dụng",
+    Content = identifyexecutor and identifyexecutor() or "Unknown"
+})
+
+Tabs.Main:CreateParagraph("DeviceInfo", {
+    Title = "Thiết Bị",
+    Content = UserInputService.TouchEnabled and "Mobile" or "PC"
+})
+
+spawn(function()
+    while task.wait(1) do
+        local elapsed = math.floor(tick() - StartTime)
+
+        local h = math.floor(elapsed / 3600)
+        local m = math.floor((elapsed % 3600) / 60)
+        local s = elapsed % 60
+
+        local realtime = os.date("%H:%M:%S")
+        local servertime = game.Lighting.TimeOfDay
+
+        local fps = math.floor(1 / RunService.RenderStepped:Wait())
+
+        Tabs.Main:CreateParagraph("RealtimeInfo", {
+            Title = "Thông Tin",
+            Content =
+                "Thời Gian Chơi: " .. h .. "h " .. m .. "m " .. s .. "s\n" ..
+                "Thời Gian Máy Chủ: " .. servertime .. "\n" ..
+                "FPS: " .. fps .. "\n" ..
+                "Thời Gian Thực: " .. realtime
+        })
+    end
+end)
+
+-- ===== BUTTONS =====
+
+local RunButton = Tabs.Main:AddButton({
+    Title = "Run Script",
+    Callback = function()
+        Library:Notify({
+            Title = "Script Hub",
+            Content = "Script Running...",
+            Duration = 3
+        })
+    end
+})
+
+local CopyButton1 = Tabs.Main:AddButton({
+    Title = "Copy 1",
+    Callback = function()
+        setclipboard("https://example1.com")
+    end
+})
+
+local CopyButton2 = Tabs.Main:AddButton({
+    Title = "Copy 2",
+    Callback = function()
+        setclipboard("https://example2.com")
+    end
+})
+
+local CloseButton = Tabs.Settings:AddButton({
+    Title = "Close GUI",
+    Callback = function()
+        for _,v in pairs(game:GetService("CoreGui"):GetChildren()) do
+            if v.Name:find("ScreenGui") then
+                v:Destroy()
+            end
+        end
+    end
+})
         {
             Section = "Bypass"
         },
@@ -424,23 +521,3 @@ InterfaceManager:SetFolder("ScriptHub")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 
 Window:SelectTab(1)
-local RunButton = Tabs.Main:AddButton({
-    Title = "Run Script",
-    Callback = function()
-        print("Script Running...")
-    end
-})
-
-local CopyButton1 = Tabs.Main:AddButton({
-    Title = "Copy Link 1",
-    Callback = function()
-        setclipboard("https://example1.com")
-    end
-})
-
-local CopyButton2 = Tabs.Main:AddButton({
-    Title = "Copy Link 2",
-    Callback = function()
-        setclipboard("https://example2.com")
-    end
-})
