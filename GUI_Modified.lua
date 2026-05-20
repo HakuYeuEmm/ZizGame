@@ -196,17 +196,6 @@ local CopyButton2 = Tabs.Main:AddButton({
         setclipboard("https://example2.com")
     end
 })
-
-local CloseButton = Tabs.Settings:AddButton({
-    Title = "Close GUI",
-    Callback = function()
-        for _,v in pairs(game:GetService("CoreGui"):GetChildren()) do
-            if v.Name:find("ScreenGui") then
-                v:Destroy()
-            end
-        end
-    end
-})
         {
             Section = "Bypass"
         },
