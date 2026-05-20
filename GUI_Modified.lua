@@ -98,7 +98,7 @@ local UIConfig = {
             Content = "Thank you for using Script Hub. Navigate the tabs above to configure combat, player, and visual settings."
         },
         {
-            Section = "Farm Settings"
+            Section = "Tsuki Hub Premium/Free"
         },
         {
             Id = "AutoFarm",
@@ -111,72 +111,7 @@ local UIConfig = {
             end
         },
         {
-            Id = "AutoQuest",
-            Mode = "Toggle",
-            Title = "Auto Quest",
-            Description = "Automatically accept and complete available quests.",
-            Default = false,
-            Callback = function(Value)
-                print("Auto Quest:", Value)
-            end
-        },
-        {
-            Id = "AutoCollect",
-            Mode = "Toggle",
-            Title = "Auto Collect",
-            Description = "Automatically pick up dropped items and rewards.",
-            Default = false,
-            Callback = function(Value)
-                print("Auto Collect:", Value)
-            end
-        },
-        {
-            Id = "FarmDistance",
-            Mode = "Slider",
-            Title = "Farm Radius",
-            Description = "Maximum radius in studs to detect and engage mobs.",
-            Default = 200,
-            Min = 50,
-            Max = 1000,
-            Callback = function(Value)
-                print("Farm Radius:", Value)
-            end
-        },
-        {
-            Id = "FarmMethod",
-            Mode = "Dropdown",
-            Title = "Attack Method",
-            Description = "Choose the attack style used when farming mobs.",
-            Values = {"Melee", "Sword", "Blox Fruit", "Gun"},
-            Default = "Melee",
-            Callback = function(Value)
-                print("Attack Method:", Value)
-            end
-        },
-        {
-            Section = "Automation"
-        },
-        {
-            Id = "AutoEat",
-            Mode = "Toggle",
-            Title = "Auto Eat",
-            Description = "Automatically consume food when health drops below the set threshold.",
-            Default = false,
-            Callback = function(Value)
-                print("Auto Eat:", Value)
-            end
-        },
-        {
-            Id = "EatThreshold",
-            Mode = "Slider",
-            Title = "Eat Health Threshold",
-            Description = "Trigger auto eat when HP falls below this percentage.",
-            Default = 40,
-            Min = 10,
-            Max = 90,
-            Callback = function(Value)
-                print("Eat Threshold:", Value)
-            end
+            Section = "Bypass"
         },
         {
             Id = "AntiAFK",
@@ -189,7 +124,7 @@ local UIConfig = {
             end
         },
         {
-            Section = "Misc"
+            Section = "Misc-WebHook"
         },
         {
             Id = "Webhook",
@@ -197,7 +132,7 @@ local UIConfig = {
             Title = "Discord Webhook",
             Description = "Paste your Discord webhook URL to receive farm notifications.",
             Default = "",
-            Placeholder = "https://discord.com/api/webhooks/...",
+            Placeholder = "Input...",
             Callback = function(Value)
                 print("Webhook:", Value)
             end
