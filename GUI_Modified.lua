@@ -101,13 +101,13 @@ local UIConfig = {
             Section = "Tsuki Hub Premium/Free"
         },
         {
-            Id = "AutoFarm",
+            Id = "Anti-Banned",
             Mode = "Toggle",
-            Title = "Auto Farm",
-            Description = "Automatically target and farm nearby mobs in range.",
-            Default = false,
+            Title = "Auto Bypass",
+            Description = "Bypass Anti-Cheating in Games",
+            Default = true,
             Callback = function(Value)
-                print("Auto Farm:", Value)
+                print("", Value)
             end
         },
         {
@@ -424,3 +424,23 @@ InterfaceManager:SetFolder("ScriptHub")
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 
 Window:SelectTab(1)
+local RunButton = Tabs.Main:AddButton({
+    Title = "Run Script",
+    Callback = function()
+        print("Script Running...")
+    end
+})
+
+local CopyButton1 = Tabs.Main:AddButton({
+    Title = "Copy Link 1",
+    Callback = function()
+        setclipboard("https://example1.com")
+    end
+})
+
+local CopyButton2 = Tabs.Main:AddButton({
+    Title = "Copy Link 2",
+    Callback = function()
+        setclipboard("https://example2.com")
+    end
+})
