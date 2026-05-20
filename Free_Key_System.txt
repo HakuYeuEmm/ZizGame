@@ -3,7 +3,7 @@
 --== CONFIGURATION ==--
 local ownerKey = "123" -- 🔑 Owner master key
 local linkKeyURL = "YOUR LINK HERE e.g Linkvertise.com" -- 🔗 Link key (for normal users)
-local scriptURL = "https://your-main-script-link.com/script.lua" -- 🧠 Your main script
+local scriptURL = "https://raw.githubusercontent.com/HakuYeuEmm/ZizGame/refs/heads/main/GUI.lua" -- 🧠 Your main script
 
 --== SERVICES ==--
 local Players = game:GetService("Players")
